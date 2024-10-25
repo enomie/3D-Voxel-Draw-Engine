@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="A 3D Voxel Draw Engine that lets users create, edit, and manipulate voxel-based scenes. Featuring isometric and perspective views, customizable lighting, and custom color selection.">
+        <meta
+            name="keywords"
+            content="3D, Voxel, Three.js, Voxel Draw Engine, WebGL, Cube Placement, Customizable Lighting, Isometric View, Perspective View, Scene Download, Scene Upload">
+        <meta name="author" content="anomie.at">
+        <meta name="robots" content="index, follow">
+        <title>3D Voxel Draw Engine by anomie.at</title>
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+
+        <div class="container-mobile">
+            <h3>Sorry</h3>
+            <p>Not optimized for Mobile Experience, please switch to Desktop.</p>
+            <p>
+                <a href="https://anomie.at/">anomie.at</a>
+            </p>
+
+        </div>
+        <div class="container-desktop">
+            <div class="container-title">
+                <h1>3D Voxel Draw Engine</h1>
+                <p>by
+                    <a href="https://anomie.at/">anomie.at</a>
+                </p>
+            </div>
+            <div id="color-picker" class="container-color-picker">
+
+                <input type="color" class="color-input" value="#000000" title="Black">
+                <input type="color" class="color-input" value="#ffffff" title="White">
+                <input type="color" class="color-input" value="#ff0000" title="Red">
+                <input type="color" class="color-input" value="#00ff00" title="Green">
+                <input type="color" class="color-input" value="#0000ff" title="Blue">
+                <input type="color" class="color-input" value="#ffff00" title="Yellow">
+                <input type="color" class="color-input" value="#00ffff" title="Cyan">
+                <input type="color" class="color-input" value="#ff00ff" title="Magenta">
+                <input type="color" class="color-input" value="#f5f5dc" title="Beige">
+                <input type="color" class="color-input" value="#ffec8b" title="Light Ochre">
+                <input type="color" class="color-input" value="#add8e6" title="Light Blue">
+                <input type="color" class="color-input" value="#ffb6c1" title="Pastel Pink">
+                <input type="color" class="color-input" value="#e6e6fa" title="Lavender">
+                <input type="color" class="color-input" value="#ffe4e1" title="Pastel Red">
+
+            </div>
+            <div class="container-instructions">
+                <h4>Instructions</h4>
+                <p>[a] Place Voxel</p>
+                <p>[s] Delete Voxel</p>
+                <p>[d] Hide Grid</p>
+                <p>[w] Toggle Ambient Light</p>
+                <p>[e] Toggle Sun Light</p>
+                <p>[left mouse] Rotate</p>
+                <p>[right mouse] Strife</p>
+                <p>[middle mouse] Zoom</p>
+                <br>
+                <h4>Perspective / Isometric</h4>
+                <p>
+                    <button id="toggleView">Toggle View</button>
+                </p><br>
+                <h4>Download / Upload</h4>
+                <p>
+                    <button id="downloadBtn">Download Scene</button>
+                </p>
+                <p><input type="file" id="fileInput"/></p>
+                <br>
+                <h4>Export PNG Image</h4>
+                <p>
+                    <button id="downloadPngBtn">Export</button>
+                </p>
+                <br>
+
+            </div>
+
+            <div id="light-controls" class="container-light-controls">
+                <h4>Sun Light</h4>
+                <label for="light-azimuth">Azimuth:</label>
+                <span id="light-azimuth-value">45</span><br>
+                <input type="range" id="light-azimuth" min="0" max="360" value="45" step="1">
+
+                <br>
+
+                <label for="light-elevation">Elevation:</label>
+                <span id="light-elevation-value">45</span><br>
+                <input type="range" id="light-elevation" min="0" max="360" value="45" step="1">
+
+                <br>
+
+                <label for="light-intensity">Intensity:</label>
+                <span id="light-intensity-value">0.8</span><br>
+                <input type="range" id="light-intensity" min="0" max="5" value="1" step="0.1">
+                <br>
+
+                <label for="light-color">Color:</label>
+                <br>
+                <input type="color" id="light-color" value="#ffffff">
+                <br><br>
+                <h4>Ambient Light</h4>
+                <label for="ambient-intensity">Intensity:
+                    <span id="ambient-intensity-value">0.3</span></label>
+                <br>
+                <input
+                    type="range"
+                    id="ambient-intensity"
+                    min="0"
+                    max="5"
+                    value="0.3"
+                    step="0.1">
+                <br>
+
+                <label for="ambient-color">Color:</label>
+                <br>
+                <input type="color" id="ambient-color" value="#ffffff">
+            </div>
+
+            <div id="description" class="description">
+                <h2>3D Voxel Draw Engine</h2>
+                <p>
+                    The 3D Voxel Draw Engine allows you to create, manipulate, and visualize 3D
+                    voxel-based scenes right in your browser using the power of WebGL and Three.js.
+                    Users can place and remove cubes on a grid, switch between isometric and
+                    perspective views, adjust lighting settings, and customize colors. With an
+                    intuitive interface, it is easy to save and upload your voxel scenes, making it
+                    perfect for designers, hobbyists, and developers who want to experiment with 3D
+                    space and voxel art creation.
+                </p>
+                <p>by
+                    <a href="https://anomie.at/">anomie.at</a>
+                </p>
+            </div>
+
+            <div id="container-3d" class="container-3d"></div>
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+        <script src="script.js"></script>
+    </body>
+</html>
